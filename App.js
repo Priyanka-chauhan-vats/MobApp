@@ -118,892 +118,896 @@ export default class App extends React.Component {
   }
 }
 
-const AppNavigator = createStackNavigator({
-  splash: {
-    screen: splashScreen,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  watchWard: {
-    screen: watchWard,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  Home: {
-    screen: Homescreen,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  drowerss: {
-    screen: NavigationDrawerStructure,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  trackinglist: {
-    screen: trackinglist,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Tracking Grievances List',
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  IABMnotView: {
-    screen: IABMnotView,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Issues Assigned by Me',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  IABMcomplaintDetails: {
-    screen: IABMcomplaintDetails,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Complaint Details',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  STFandSNS: {
-    screen: STFandSNS,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Authority Portal',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  Listofgrievance: {
-    screen: Listofgrievance,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Grievance List',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  Listofgenralcomplaint: {
-    screen: Listofgenralcomplaint,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'General Complaint',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  Reslovedd: {
-    screen: Resloved,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Resolved',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  Othercomplaint: {
-    screen: Othercomplaint,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Complaint Other then STF',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  Applyothercomplaint: {
-    screen: Applyothercomplaint,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Create New Complaint',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  Telephonic: {
-    screen: Telephonic,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'DDA helpline',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  Viewallothercomplaint: {
-    screen: Viewallothercomplaint,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Complaints Status',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  userviewacomplaintotherthenstf: {
-    screen: userviewacomplaintotherthenstf,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'All Complaints',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  userassignedcomplaintotherthenstf: {
-    screen: userassignedcomplaintotherthenstf,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Assigned Complaints',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  userreopencompalintotherstf: {
-    screen: userreopencompalintotherstf,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Reopen complaints',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  issueAssignByme: {
-    screen: issueAssignByme,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Issue Assign By me',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  closed: {
-    screen: closedcomplaint,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Closed Complaints',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  onhold: {
-    screen: onholdcomplaint,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'On Hold Complaints',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  issueAssignBymeotherSTF: {
-    screen: issueAssignBymeotherSTF,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Issue Assign By me',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-
-  Searchothercomplaint: {
-    screen: Searchothercomplaint,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Search Complaints',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  Feedbackthercomplaint: {
-    screen: Feedbackthercomplaint,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Write Feedback',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  IssuesClosed: {
-    screen: IssuesClosed,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Issues that I have Closed',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  usersignupotp: {
-    screen: Usersignupotp,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: '',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-
-  IssuesClosedotehrSTF: {
-    screen: IssuesClosedotehrSTF,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Issues that I have Closed',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-
-  tranfer: {
-    screen: tranfer,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Details Transfer',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  NodalOfficers: {
-    screen: NodalOfficers,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Select Officers',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  NodalOfficersOyherthenstf: {
-    screen: NodalOfficersOyherthenstf,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Select Nodal Officers',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  map: {
-    screen: Map,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Map',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  GridOfficers: {
-    screen: GridOfficers,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Select Officers',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  gridOfficersOyherthenstf: {
-    screen: gridOfficersOyherthenstf,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Select Officers',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  ClickonTransfer: {
-    screen: ClickonTransfer,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Select',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  ClickonTransferOtherthenstf: {
-    screen: ClickonTransferOtherthenstf,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Select Officers',
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-
-  sendComments: {
-    screen: sendComments,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Send Comments',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  complaintTranfer: {
-    screen: complaintTranfer,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Complaint Transfer',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  PensioneCard: {
-    screen: ForPensioneCard,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: ' Employee Grievances',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  Apply: {
-    screen: apply,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Apply for De-Sealing ',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  RoadRelatedApply: {
-    screen: RoadRelatedApply,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Apply for Road Related ',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  byelawsApply: {
-    screen: byelawsApply,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Apply for Building Byelaws Violaton',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  RightApply: {
-    screen: RightApply,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Apply for Right of way Related ',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  UnauthroizedApply: {
-    screen: UnauthroizedApply,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Apply for Ongoing Unauthorized Construction ',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  MiscApply: {
-    screen: MiscApply,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Apply for Misc. ',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  EncroachmentParkApply: {
-    screen: EncroachmentParkApply,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Apply for Encroachment in Park ',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  EncroachmentApply: {
-    screen: EncroachmentApply,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Apply for Encroachment on public land/property ',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  PensionApply: {
-    screen: Pensionapply,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Apply for Pension',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  applyView: {
-    screen: applyView,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Details of Submitted Grievance',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  userdeshboard: {
-    screen: userDashboard,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  otherr: {
-    screen: other,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  Profile: {
-    screen: profile,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  circular: {
-    screen: circular,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Public Circular',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  AuthrityPortal: {
-    screen: Authrity,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Authority Portal',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  statusReport: {
-    screen: StatusReport,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Authority Portal',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  listofComplaint: {
-    screen: listofComplaint,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'List Of STF Grievance',
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  userloginotp: {
-    screen: Userloginotp,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: '',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  OfficerList: {
-    screen: OfficerList,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'List Of Officers',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  details: {
-    screen: Compaintdetails,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Details Grievances',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  otherthenstfcomplaintdetailsNotViewed: {
-    screen: otherthenstfcomplaintdetailsNotViewed,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Details Grievances',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  otherthenstfcomplaintdetailsViewed: {
-    screen: otherthenstfcomplaintdetailsViewed,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Details Grievances',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  detailsviewed: {
-    screen: CompaintdetailsViewed,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Details Grievances',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  userotherthensSTFcomplaintdetails: {
-    screen: userotherthenstfcomplaintdetails,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Details of complaint',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  actionNodalofc: {
-    screen: actionNodalofc,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'New(Action not taken)[Not Viewed]',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  ReopenSTF: {
-    screen: ReopenSTF,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Reopen Complaints',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  workinprogress: {
-    screen: workinprogress,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Work in Progress Complaints',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  workinprogressotherthenstf: {
-    screen: workinprogressotherthenstf,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Work in Progress Complaints',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  actionNodalofcotherSTF: {
-    screen: actionNodalofcotherSTF,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'New(Action not taken)[Not Viewed]',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  actionNodalofcViewed: {
-    screen: actionNodalofcViewed,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'New(Action not taken)[Viewed]',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  actionNodalofcViewedotherSTF: {
-    screen: actionNodalofcViewedotherSTF,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'New(Action not taken)[Viewed]',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  viewreport: {
-    screen: ViewReport,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'View All Report',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  tracking: {
-    screen: track,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Track Grievances Item',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  loginauth: {
-    screen: loginAuthrity,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  detailslist: {
-    screen: userdetailslist,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Listing of submitted  Grievances ',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  tranferhistory: {
-    screen: tranferhistory,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Tranfer History',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  mystuff: {
-    screen: mystuff,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Complaint Redressal',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  mystuffotherthenstf: {
-    screen: mystuffotherthenstf,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Complaint Redressal',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  workflow: {
-    screen: Workflow,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Issues Assign to me',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-  issueassigntomeotherSTF: {
-    screen: issueassigntomeotherSTF,
-    navigationOptions: ({navigation}) => ({
-      headerTitle: 'Issues Assign to me',
-
-      headerStyle: {
-        backgroundColor: '#356FE0',
-      },
-      headerTintColor: 'white',
-    }),
-  },
-
-  floating: {
-    screen: floating,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  floatingIATMothertenstf: {
-    screen: floatingIATMothertenstf,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  IABMfloating: {
-    screen: IABMfloating,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-      // headerTitle: '',
-
-      //  headerStyle: {
-      //          backgroundColor: '#356FE0',
-      //                 headerTintColor: 'white',
-      //                  //headerTitlecolor:'white',
-
-      //        },
-      // headerTintColor: 'white',
-    }),
-  },
-  signupppp: {
-    screen: Signup,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  signupauth: {
-    screen: SignupAuthrity,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  Authsignupotp: {
-    screen: Authsignupotp,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  Authloginotp: {
-    screen: Authloginotp,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-
-  complaintt: {
-    screen: Complaint,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-  Loginnnnn: {
-    screen: login,
-    navigationOptions: ({navigation}) => ({
-      headerShown: false,
-    }),
-  },
-});
+const AppNavigator = createStackNavigator(
+  {
+    splash: {
+      screen: splashScreen,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    watchWard: {
+      screen: watchWard,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    Home: {
+      screen: Homescreen,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    drowerss: {
+      screen: NavigationDrawerStructure,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    trackinglist: {
+      screen: trackinglist,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Tracking Grievances List',
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    IABMnotView: {
+      screen: IABMnotView,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Issues Assigned by Me',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    IABMcomplaintDetails: {
+      screen: IABMcomplaintDetails,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Complaint Details',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    STFandSNS: {
+      screen: STFandSNS,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Authority Portal',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    Listofgrievance: {
+      screen: Listofgrievance,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Grievance List',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    Listofgenralcomplaint: {
+      screen: Listofgenralcomplaint,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'General Complaint',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    Reslovedd: {
+      screen: Resloved,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Resolved',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    Othercomplaint: {
+      screen: Othercomplaint,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Complaint Other then STF',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    Applyothercomplaint: {
+      screen: Applyothercomplaint,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Create New Complaint',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    Telephonic: {
+      screen: Telephonic,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'DDA helpline',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    Viewallothercomplaint: {
+      screen: Viewallothercomplaint,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Complaints Status',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    userviewacomplaintotherthenstf: {
+      screen: userviewacomplaintotherthenstf,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'All Complaints',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    userassignedcomplaintotherthenstf: {
+      screen: userassignedcomplaintotherthenstf,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Assigned Complaints',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    userreopencompalintotherstf: {
+      screen: userreopencompalintotherstf,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Reopen complaints',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    issueAssignByme: {
+      screen: issueAssignByme,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Issue Assign By me',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    closed: {
+      screen: closedcomplaint,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Closed Complaints',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    onhold: {
+      screen: onholdcomplaint,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'On Hold Complaints',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    issueAssignBymeotherSTF: {
+      screen: issueAssignBymeotherSTF,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Issue Assign By me',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+
+    Searchothercomplaint: {
+      screen: Searchothercomplaint,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Search Complaints',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    Feedbackthercomplaint: {
+      screen: Feedbackthercomplaint,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Write Feedback',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    IssuesClosed: {
+      screen: IssuesClosed,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Issues that I have Closed',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    usersignupotp: {
+      screen: Usersignupotp,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: '',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+
+    IssuesClosedotehrSTF: {
+      screen: IssuesClosedotehrSTF,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Issues that I have Closed',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+
+    tranfer: {
+      screen: tranfer,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Details Transfer',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    NodalOfficers: {
+      screen: NodalOfficers,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Select Officers',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    NodalOfficersOyherthenstf: {
+      screen: NodalOfficersOyherthenstf,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Select Nodal Officers',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    map: {
+      screen: Map,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Map',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    GridOfficers: {
+      screen: GridOfficers,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Select Officers',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    gridOfficersOyherthenstf: {
+      screen: gridOfficersOyherthenstf,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Select Officers',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    ClickonTransfer: {
+      screen: ClickonTransfer,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Select',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    ClickonTransferOtherthenstf: {
+      screen: ClickonTransferOtherthenstf,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Select Officers',
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+
+    sendComments: {
+      screen: sendComments,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Send Comments',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    complaintTranfer: {
+      screen: complaintTranfer,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Complaint Transfer',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    PensioneCard: {
+      screen: ForPensioneCard,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: ' Employee Grievances',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    Apply: {
+      screen: apply,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Apply for De-Sealing ',
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    RoadRelatedApply: {
+      screen: RoadRelatedApply,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Apply for Road Related ',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    byelawsApply: {
+      screen: byelawsApply,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Apply for Building Byelaws Violaton',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    RightApply: {
+      screen: RightApply,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Apply for Right of way Related ',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    UnauthroizedApply: {
+      screen: UnauthroizedApply,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Apply for Ongoing Unauthorized Construction ',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    MiscApply: {
+      screen: MiscApply,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Apply for Misc. ',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    EncroachmentParkApply: {
+      screen: EncroachmentParkApply,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Apply for Encroachment in Park ',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    EncroachmentApply: {
+      screen: EncroachmentApply,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Apply for Encroachment on public land/property ',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    PensionApply: {
+      screen: Pensionapply,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Apply for Pension',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    applyView: {
+      screen: applyView,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Details of Submitted Grievance',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    userdeshboard: {
+      screen: userDashboard,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    otherr: {
+      screen: other,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    Profile: {
+      screen: profile,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    circular: {
+      screen: circular,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Public Circular',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    AuthrityPortal: {
+      screen: Authrity,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Authority Portal',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    statusReport: {
+      screen: StatusReport,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Authority Portal',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    listofComplaint: {
+      screen: listofComplaint,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'List Of STF Grievance',
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    userloginotp: {
+      screen: Userloginotp,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: '',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    OfficerList: {
+      screen: OfficerList,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'List Of Officers',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    details: {
+      screen: Compaintdetails,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Details Grievances',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    otherthenstfcomplaintdetailsNotViewed: {
+      screen: otherthenstfcomplaintdetailsNotViewed,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Details Grievances',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    otherthenstfcomplaintdetailsViewed: {
+      screen: otherthenstfcomplaintdetailsViewed,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Details Grievances',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    detailsviewed: {
+      screen: CompaintdetailsViewed,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Details Grievances',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    userotherthensSTFcomplaintdetails: {
+      screen: userotherthenstfcomplaintdetails,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Details of complaint',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    actionNodalofc: {
+      screen: actionNodalofc,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'New(Action not taken)[Not Viewed]',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    ReopenSTF: {
+      screen: ReopenSTF,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Reopen Complaints',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    workinprogress: {
+      screen: workinprogress,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Work in Progress Complaints',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    workinprogressotherthenstf: {
+      screen: workinprogressotherthenstf,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Work in Progress Complaints',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    actionNodalofcotherSTF: {
+      screen: actionNodalofcotherSTF,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'New(Action not taken)[Not Viewed]',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    actionNodalofcViewed: {
+      screen: actionNodalofcViewed,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'New(Action not taken)[Viewed]',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    actionNodalofcViewedotherSTF: {
+      screen: actionNodalofcViewedotherSTF,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'New(Action not taken)[Viewed]',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    viewreport: {
+      screen: ViewReport,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'View All Report',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    tracking: {
+      screen: track,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Track Grievances Item',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    loginauth: {
+      screen: loginAuthrity,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    detailslist: {
+      screen: userdetailslist,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Listing of submitted  Grievances ',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    tranferhistory: {
+      screen: tranferhistory,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Tranfer History',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    mystuff: {
+      screen: mystuff,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Complaint Redressal',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    mystuffotherthenstf: {
+      screen: mystuffotherthenstf,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Complaint Redressal',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    workflow: {
+      screen: Workflow,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Issues Assign to me',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+    issueassigntomeotherSTF: {
+      screen: issueassigntomeotherSTF,
+      navigationOptions: ({navigation}) => ({
+        headerTitle: 'Issues Assign to me',
+
+        headerStyle: {
+          backgroundColor: '#356FE0',
+        },
+        headerTintColor: 'white',
+      }),
+    },
+
+    floating: {
+      screen: floating,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    floatingIATMothertenstf: {
+      screen: floatingIATMothertenstf,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    IABMfloating: {
+      screen: IABMfloating,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+        // headerTitle: '',
+
+        //  headerStyle: {
+        //          backgroundColor: '#356FE0',
+        //                 headerTintColor: 'white',
+        //                  //headerTitlecolor:'white',
+
+        //        },
+        // headerTintColor: 'white',
+      }),
+    },
+    signupppp: {
+      screen: Signup,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    signupauth: {
+      screen: SignupAuthrity,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    Authsignupotp: {
+      screen: Authsignupotp,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    Authloginotp: {
+      screen: Authloginotp,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+
+    complaintt: {
+      screen: Complaint,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+    Loginnnnn: {
+      screen: login,
+      navigationOptions: ({navigation}) => ({
+        headerShown: false,
+      }),
+    },
+  },
+  {
+    // initialRouteName: 'Apply',
+  },
+);
 
 const AppContainer = createAppContainer(AppNavigator);
 

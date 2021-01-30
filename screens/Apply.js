@@ -1,64 +1,28 @@
 import React, {Component} from 'react';
 import {
-  Button,
   View,
   Image,
   Dimensions,
   StyleSheet,
-  ImageBackground,
   AsyncStorage,
   FlatList,
   Picker,
 } from 'react-native';
-import {
-  Container,
-  Header,
-  Title,
-  Content,
-  Card,
-  CardItem,
-  Thumbnail,
-  Left,
-  Right,
-  Body,
-  Footer,
-  FooterTab,
-  Form,
-  Item,
-  Input,
-  Label,
-  ActionSheet,
-  Root,
-  DatePicker,
-} from 'native-base';
+import {ActionSheet} from 'native-base';
 import {
   TouchableOpacity,
   TextInput,
   ScrollView,
 } from 'react-native-gesture-handler';
 import {Block, Checkbox, Text, theme} from 'galio-framework';
-import Textarea from 'react-native-textarea';
 // import ImagePicker from 'react-native-image-picker'
-import LinearGradient from 'react-native-linear-gradient';
 import ImagePicker from 'react-native-image-crop-picker';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import InputOutline from 'react-native-input-outline';
-const {width, height} = Dimensions.get('screen');
 import axios from 'axios';
 import {baseurl} from '../screens/baseurl';
 const grievance = baseurl + 'grievanceApplyform';
 const nodalofficer = baseurl + 'all_Nodalofficer';
 
 const {width: WIDTH} = Dimensions.get('window');
-import RadioForm, {
-  RadioButton,
-  RadioButtonInput,
-  RadioButtonLabel,
-} from 'react-native-simple-radio-button';
-var radio_props = [
-  {label: 'Male', value: 0},
-  {label: 'Female', value: 1},
-];
 
 export default class apply extends Component {
   constructor(props) {
@@ -102,11 +66,6 @@ export default class apply extends Component {
     // }
   };
   PostAPI = () => {
-    console.log(
-      '🚀 ~ file: Apply.js ~ line 109 ~ apply ~ nodalofficer',
-      nodalofficer,
-    );
-
     // const datad = { user_id: this.state.user }
     axios
       .get(nodalofficer)
@@ -298,169 +257,117 @@ export default class apply extends Component {
         return item;
       }
     });
-    const NodalNode = NodalListData.map((item,index) => {
-      return <Picker.Item
-          value={item.OFFICER_NAME}
-          label={item.OFFICER_NAME}
-        />
-     })
+    const NodalNode = NodalListData.map((item, index) => {
+      return (
+        <Picker.Item value={item.OFFICER_NAME} label={item.OFFICER_NAME} />
+      );
+    });
     const {photo} = this.state;
     let {filelist} = this.state;
     const officer = this.state.filelistnodalofficer;
     return (
-      <Block flex>
-        {/* <LinearGradient colors={['#6E7DDB','#f5efef']}> */}
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.block}>
-          {/* <LinearGradient colors={['#feada6', '#f5efef']}> */}
-          <ScrollView>
-            {/* <Block  style={{  padding: 5}}>
+          <Text style={styles.label}>Name of Complainant</Text>
+          <TextInput
+            style={styles.inputText}
+            placeholder="Name"
+            placeholderTextColor="black"
+            onChange={this.handleNameChange}
+          />
 
-                        <InputOutline   style={{fontSize:12,height:45,}}
-  placeholder="Name of complainant"
-  focusedColor='black'
-  defaultColor='grey'
-/>
-</Block> */}
-            <Text style={{fontWeight: 'bold', fontSize: 15}}>
-              Name of Complainant
-            </Text>
-            <View style={styles.inputView}>
-              <TextInput
-                style={styles.inputText}
-                placeholder="Name"
-                placeholderTextColor="black"
-                onChange={this.handleNameChange}
-              />
-            </View>
-            <Text style={{fontWeight: 'bold', fontSize: 15}}>
-              Email Address
-            </Text>
-            <View style={styles.inputView}>
-              <TextInput
-                style={styles.inputText}
-                placeholder="Email"
-                placeholderTextColor="black"
-                onChange={this.handleEmailChange}
-              />
-            </View>
+          <Text style={styles.label}>Email Address</Text>
+          <TextInput
+            style={styles.inputText}
+            placeholder="Email"
+            placeholderTextColor="black"
+            onChange={this.handleEmailChange}
+          />
 
-            <Text style={{fontWeight: 'bold', fontSize: 15}}>
-              Mobile Number
-            </Text>
-            <View style={styles.inputView}>
-              <TextInput
-                style={styles.inputText}
-                placeholder="Mobile Number"
-                placeholderTextColor="black"
-                onChange={this.handlePhoneChange}
-              />
-            </View>
-            <Text style={{fontWeight: 'bold', fontSize: 15}}>Address</Text>
-            <View style={styles.textAreaContainer}>
-              <TextInput
-                style={styles.textArea}
-                underlineColorAndroid="transparent"
-                placeholder="Address"
-                // value='shamli'
-                onChange={this.handleAddressChange}
-                placeholderTextColor="black"
-                // numberOfLines={4}
-                multiline={true}
-              />
-            </View>
-            {/* <Block  style={{  padding: 5,marginTop:-25,}}>
-               
-                 <InputOutline   style={{fontSize:12,textAlignVertical:'top',height:45}}
-  placeholder="Address"
-  focusedColor='black'
-  defaultColor='grey'
-  multiline={true} 
-/>
-            
-              </Block> */}
-            <Text style={{fontWeight: 'bold', fontSize: 15}}>
-              Complaint Descrption
-            </Text>
-            <View style={styles.textAreaContainer}>
-              {/* <Textarea placeholder="Complaint Descrption"  /> */}
+          <Text style={styles.label}>Mobile Number</Text>
+          <TextInput
+            style={styles.inputText}
+            placeholder="Mobile Number"
+            placeholderTextColor="black"
+            onChange={this.handlePhoneChange}
+          />
 
-              <TextInput
-                style={styles.textArea}
-                underlineColorAndroid="transparent"
-                placeholder="Complaint Description"
-                // value='shamli'
-                onChange={this.handleDescriptionChange}
-                placeholderTextColor="black"
-                // numberOfLines={4}
-                multiline={true}
-              />
-            </View>
+          <Text style={styles.label}>Address</Text>
+          <TextInput
+            style={styles.inputText}
+            underlineColorAndroid="transparent"
+            placeholder="Address"
+            // value='shamli'
+            onChange={this.handleAddressChange}
+            placeholderTextColor="black"
+            multiline={true}
+          />
 
-            {/* <Textarea  rowSpan={8} placeholder="write here your feedback"  /> */}
+          <Text style={styles.label}>Complaint Descrption</Text>
+          <TextInput
+            style={styles.inputText}
+            underlineColorAndroid="transparent"
+            placeholder="Complaint Description"
+            onChange={this.handleDescriptionChange}
+            placeholderTextColor="black"
+            multiline={true}
+          />
 
-            <Block style={{borderBottomColor: '#356FE0', padding: 2}}>
-              <Text style={styles.text2}>Gender </Text>
-              <View style={styles.textInput}>
-                <Picker
-                  selectedValue={this.state.gender}
-                  onValueChange={(itemValue, itemPosition) =>
-                    this.setState({
-                      gender: itemValue,
-                      choosenIndex: itemPosition,
-                    })
-                  }>
-                  <Picker.Item label="Select " value="Select" />
-                  <Picker.Item label="Male" value="Male" />
-                  <Picker.Item label="Female" value="Female" />
-                </Picker>
-              </View>
-            </Block>
+          <Text style={styles.label}>Gender </Text>
+          <View style={styles.inputText}>
+            <Picker
+              selectedValue={this.state.gender}
+              onValueChange={(itemValue, itemPosition) =>
+                this.setState({
+                  gender: itemValue,
+                  choosenIndex: itemPosition,
+                })
+              }>
+              <Picker.Item label="Select " value="Select" />
+              <Picker.Item label="Male" value="Male" />
+              <Picker.Item label="Female" value="Female" />
+            </Picker>
+          </View>
 
-            <Block style={{borderBottomColor: '#356FE0', padding: 5}}>
-              <Text style={styles.text2}>
-                Jurisdiction of Organization About the Complaint{' '}
-              </Text>
-              <View style={styles.textInput}>
-                <Picker
-                  selectedValue={this.state.organization}
-                  onValueChange={(itemValue, itemPosition) => {
-                      this.setState({
-                        organization: itemValue,
-                        choosenIndex: itemPosition,
-                      })
-                  }
-                  }>
-                  <Picker.Item label="Select Organization" value={0} />
-                  {this.state.filelistnodalofficer.map((park, index) => {
-                    return (
-                      <Picker.Item
-                        key={index}
-                        value={park.Authority_name}
-                        label={park.Authority_name}
-                      />
-                    );
-                  })}
-                </Picker>
-              </View>
-            </Block>
+          <Text style={styles.label}>
+            Jurisdiction of Organization About the Complaint{' '}
+          </Text>
+          <View style={styles.inputText}>
+            <Picker
+              selectedValue={this.state.organization}
+              onValueChange={(itemValue, itemPosition) => {
+                this.setState({
+                  organization: itemValue,
+                  choosenIndex: itemPosition,
+                });
+              }}>
+              <Picker.Item label="Select Organization" value={0} />
+              {this.state.filelistnodalofficer.map((park, index) => {
+                return (
+                  <Picker.Item
+                    key={index}
+                    value={park.Authority_name}
+                    label={park.Authority_name}
+                  />
+                );
+              })}
+            </Picker>
+          </View>
 
-            <Block style={{borderBottomColor: '#356FE0', padding: 2}}>
-              <Text style={styles.text2}>Concerned Nodal Officer</Text>
-              <View style={styles.textInput}>
-                <Picker
-                  enabled={Boolean(this.state.organization)}
-                  selectedValue={this.state.nodalofficer}
-                  onValueChange={(itemValue, itemPosition) => {
-                    this.setState({
-                      nodalofficer: itemValue,
-                      choosenIndex2: itemPosition,
-                    })
-                  }
-                  
-                  }>
-                  <Picker.Item label="Select" value="Select" />
-                  {NodalNode}
-                  {/* {this.state.filelistnodalofficer.filter((park, i) => {
+          <Text style={styles.label}>Concerned Nodal Officer</Text>
+          <View style={styles.inputText}>
+            <Picker
+              enabled={Boolean(this.state.organization)}
+              selectedValue={this.state.nodalofficer}
+              onValueChange={(itemValue, itemPosition) => {
+                this.setState({
+                  nodalofficer: itemValue,
+                  choosenIndex2: itemPosition,
+                });
+              }}>
+              <Picker.Item label="Select" value="Select" />
+              {NodalNode}
+              {/* {this.state.filelistnodalofficer.filter((park, i) => {
                     if (this.state.choosenIndex === i) {
                       return (
                         <Picker.Item
@@ -474,274 +381,109 @@ export default class apply extends Component {
                       return <Picker.Item label="Select " value="Select" />;
                     }
                   })} */}
-                </Picker>
-              </View>
-            </Block>
-            <Block style={{borderBottomColor: '#356FE0', padding: 2}}>
-              <Text style={styles.text2}>
-                Concerned Nodal Officer Serial Number
-              </Text>
-              <View style={styles.textInput}>
-                <Picker
-                  selectedValue={this.state.nodalofficerserialnumber}
-                  onValueChange={(itemValue, itemPosition) =>
-                    this.setState({
-                      nodalofficerserialnumber: itemValue,
-                      choosenIndex2: itemPosition,
-                    })
-                  }>
-                  <Picker.Item label="Select" value="Select" />
-                  {officer.map((park, i) => {
-                    if (this.state.choosenIndex === i) {
-                      return (
-                        <Picker.Item
-                          key={i}
-                          value={park.SerialNo}
-                          label={park.SerialNo}
-                        />
-                      );
-                    } else {
-                      return <Picker.Item label="Select " value="Select" />;
-                    }
-                  })}
-                </Picker>
-              </View>
-            </Block>
-            <View style={{marginTop: 20}}>
-              <Root>
-                <View flexDirection="row">
-                  <FlatList
-                    data={filelist}
-                    renderItem={this.renderItem}
-                    // keyExtractor={(item,index=>index.toString())
-                    keyExtractor={(item, index) => index}
-                    extraData={this.state}
-                  />
-                </View>
-                <View>
-                  <TouchableOpacity onPress={this.onclick}>
-                    {/* <Text>press add image</Text> */}
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        borderWidth: 1,
-                        width: '50%',
-                        borderRadius: 5,
-                        paddingHorizontal: 10,
-                      }}>
-                      <Image
-                        source={require('../Images/camera.png')}
-                        style={{
-                          width: 40,
-                          height: 50,
-                        }}></Image>
-                      <Text style={{top: 20, fontWeight: 'bold', left: 10}}>
-                        Choose Photo
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-              </Root>
-              <Block>
-                {/* <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('detailslist')} > */}
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={this.handleSubmit}>
-                  <Text style={styles.buttontext}>Submit</Text>
-                </TouchableOpacity>
-              </Block>
+            </Picker>
+          </View>
+          <Text style={styles.label}>
+            Concerned Nodal Officer Serial Number
+          </Text>
+          <View style={styles.inputText}>
+            <Picker
+              selectedValue={this.state.nodalofficerserialnumber}
+              onValueChange={(itemValue, itemPosition) =>
+                this.setState({
+                  nodalofficerserialnumber: itemValue,
+                  choosenIndex2: itemPosition,
+                })
+              }>
+              <Picker.Item label="Select" value="Select" />
+              {officer.map((park, i) => {
+                if (this.state.choosenIndex === i) {
+                  return (
+                    <Picker.Item
+                      key={i}
+                      value={park.SerialNo}
+                      label={park.SerialNo}
+                    />
+                  );
+                } else {
+                  return <Picker.Item label="Select " value="Select" />;
+                }
+              })}
+            </Picker>
+          </View>
+          <View style={{marginTop: 20}}>
+            <View flexDirection="row">
+              <FlatList
+                data={filelist}
+                renderItem={this.renderItem}
+                keyExtractor={(item, index) => index}
+                extraData={this.state}
+              />
             </View>
-
-            {/*   </Card>   */}
-
-            {/* </View> */}
-          </ScrollView>
-          {/* </LinearGradient> */}
+            <View>
+              <TouchableOpacity onPress={this.onclick}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    borderWidth: 1,
+                    width: '50%',
+                    borderRadius: 5,
+                    paddingHorizontal: 10,
+                    alignItems: 'center',
+                  }}>
+                  <Image
+                    source={require('../Images/camera.png')}
+                    style={{
+                      width: 50,
+                      height: 50,
+                    }}></Image>
+                  <Text style={{fontWeight: 'bold', left: 5}}>
+                    Choose Photo
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
+              <Text style={styles.buttontext}>Submit</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        {/* </LinearGradient> */}
-      </Block>
+      </ScrollView>
     );
   }
 }
 const styles = StyleSheet.create({
-  textInput2: {
-    borderWidth: 2,
-    backgroundColor: 'white',
-    fontSize: 12,
-    width: '93%',
-    borderColor: 'black',
-    textAlignVertical: 'top',
-    borderRadius: 10,
-  },
-
-  textInput: {
-    borderWidth: 1,
-    backgroundColor: 'white',
-    fontSize: 12,
-    width: '100%',
-    borderColor: 'black',
-    height: 50,
-    textAlignVertical: 'top',
-    borderRadius: 10,
-  },
-  text2: {
-    width: '100%',
-    fontSize: 16,
+  label: {
     fontWeight: 'bold',
+    fontSize: 14,
+    marginBottom: 2,
+    marginTop: 6,
   },
-  pickerStyle: {
-    height: 50,
-    width: '50%',
-    color: '#344953',
+  inputText: {
+    color: 'black',
     borderWidth: 1,
-    backgroundColor: 'white',
-
-    borderColor: 'black',
-
-    // justifyContent: 'center',
-  },
-  container: {
-    backgroundColor: 'white',
-  },
-  button: {
-    width: 100,
-    // borderRadius: 20,
-    backgroundColor: '#004CA1',
-    // marginLeft: 30,
-    marginTop: 50,
-  },
-  buttonphoto: {
-    marginTop: -30,
-    width: 100,
-    marginLeft: 110,
-    alignContent: 'center',
-  },
-
-  buttontext: {
-    fontSize: 16,
-    fontWeight: '500',
-    textAlign: 'center',
-    color: '#ffffff',
-  },
-  viewStyleForLine: {
-    borderBottomColor: '#0075C4',
-
-    alignSelf: 'stretch',
-    width: '100%',
+    borderRadius: 5,
+    fontSize: 14,
+    paddingLeft: 10,
   },
   block: {
     backgroundColor: 'white',
-    // backgroundColor: 'red',
-    // height:630,
     justifyContent: 'center',
-
-    width: '100%',
-    // borderRadius:30,
     paddingHorizontal: 15,
-    //  marginHorizontal:15,
-    //  marginTop:10
-  },
-  // textArea: {
-  //   // height: 40,
-  //   // justifyContent: "flex-start"
-  // },
-  inputView: {
-    width: '100%',
-    // backgroundColor:"#465881",
-    borderColor: 'black',
-    borderWidth: 1,
-    borderRadius: 5,
-    height: 50,
-    marginBottom: 3,
-    justifyContent: 'center',
-    padding: 5,
-    textAlignVertical: 'top',
-  },
-  inputText: {
-    height: 50,
-    color: 'black',
-    textAlignVertical: 'top',
-    fontSize: 14,
-  },
-  textAreaContainer: {
-    marginBottom: 3,
-
-    borderColor: 'black',
-    width: '100%',
-    borderRadius: 5,
-    borderWidth: 1,
-    padding: 5,
-    marginTop: 0,
-    textAlignVertical: 'top',
-    backgroundColor: 'white',
-    // justifyContent:"center",
-    // height:80,
-  },
-  textarea: {
-    textAlignVertical: 'top', // hack android
-    // height: 120,
-    fontSize: 14,
-    color: 'black',
-  },
-  mb: {
-    marginBottom: 15,
   },
   button: {
     width: 170,
     alignItems: 'center',
-    marginVertical: 20,
-    // borderRadius: 20,
     paddingVertical: 12,
     backgroundColor: 'rgb(30,144,255)',
     color: '#2E3292',
-    marginLeft: 5,
     alignSelf: 'center',
-    marginTop: 20,
-  },
-  bgcont: {
-    position: 'absolute',
-    width: 180,
-    height: 200,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 70,
-    right: 0,
-    bottom: 0,
+    marginVertical: 20,
   },
   buttontext: {
     fontSize: 16,
     fontWeight: '500',
     textAlign: 'center',
     color: '#ffffff',
-  },
-  text: {
-    justifyContent: 'center',
-    color: '	rgb(0,0,139)',
-    // alignSelf:'center',
-    marginRight: 15,
-    flexDirection: 'row',
-    marginVertical: 25,
-  },
-  signtext: {
-    fontWeight: '700',
-    fontSize: 16,
-    color: '	rgb(0,0,139)',
-  },
-  icons: {
-    position: 'absolute',
-    top: 10,
-    left: 10,
-    width: 32,
-    height: 32,
-  },
-  bgcard: {
-    // borderRadius: 20,
-    // alignItems: 'center',
-    padding: 10,
-    // width: 350,
-    // height:1200,
-    // top: 20,
-    fontSize: 15,
-    backgroundColor: 'rgb(255,255,255)',
   },
 });
