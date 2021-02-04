@@ -18,9 +18,12 @@ import {Block, Checkbox, Text, theme} from 'galio-framework';
 // import ImagePicker from 'react-native-image-picker'
 import ImagePicker from 'react-native-image-crop-picker';
 import axios from 'axios';
+import {Formik} from 'formik';
 import {baseurl} from '../screens/baseurl';
 const grievance = baseurl + 'grievanceApplyform';
 const nodalofficer = baseurl + 'all_Nodalofficer';
+import {ApplySchema} from './lib/validationSchema';
+import {ErrorMessage} from './components/ErrorMessage';
 
 const {width: WIDTH} = Dimensions.get('window');
 
@@ -47,7 +50,7 @@ export default class apply extends Component {
     };
     console.log(this.props.navigation.state.params);
     console.log(this.state.status);
-    this.checkloginstatus();
+    // this.checkloginstatus();
     this.PostAPI();
   }
   checkloginstatus = async (SK) => {
@@ -267,107 +270,141 @@ export default class apply extends Component {
     const officer = this.state.filelistnodalofficer;
     return (
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.block}>
-          <Text style={styles.label}>Name of Complainant</Text>
-          <TextInput
-            style={styles.inputText}
-            placeholder="Name"
-            placeholderTextColor="black"
-            onChange={this.handleNameChange}
-          />
+        <Formik
+          initialValues={{
+            name: '',
+            email: '',
+            mobileNo: '',
+            address: '',
+            description: '',
+          }}
+          validationSchema={ApplySchema}
+          onSubmit={(values) => console.log(values)}>
+          {({
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            values,
+            errors,
+            touched,
+          }) => (
+            <View style={styles.block}>
+              {console.log(
+                '🚀 ~ file: Apply.js ~ line 281 ~ apply ~ render ~ values',
+                values,
+              )}
+              {console.log(
+                '🚀 ~ file: Apply.js ~ line 290 ~ apply ~ render ~ errors',
+                errors,
+              )}
 
-          <Text style={styles.label}>Email Address</Text>
-          <TextInput
-            style={styles.inputText}
-            placeholder="Email"
-            placeholderTextColor="black"
-            onChange={this.handleEmailChange}
-          />
+              <Text style={styles.label}>Name of Complainant</Text>
+              <TextInput
+                style={styles.inputText}
+                placeholder="Name"
+                placeholderTextColor="black"
+                // onChange={this.handleNameChange}
+                onChangeText={handleChange('name')}
+                onBlur={handleBlur('name')}
+                value={values.name}
+              />
+              <ErrorMessage name="name" errors={errors} touched={touched} />
 
-          <Text style={styles.label}>Mobile Number</Text>
-          <TextInput
-            style={styles.inputText}
-            placeholder="Mobile Number"
-            placeholderTextColor="black"
-            onChange={this.handlePhoneChange}
-          />
+              <Text style={styles.label}>Email Address</Text>
+              <TextInput
+                style={styles.inputText}
+                placeholder="Email"
+                placeholderTextColor="black"
+                // onChange={this.handleEmailChange}
+                onChangeText={handleChange('email')}
+              />
+              <ErrorMessage name="email" errors={errors} touched={touched} />
 
-          <Text style={styles.label}>Address</Text>
-          <TextInput
-            style={styles.inputText}
-            underlineColorAndroid="transparent"
-            placeholder="Address"
-            // value='shamli'
-            onChange={this.handleAddressChange}
-            placeholderTextColor="black"
-            multiline={true}
-          />
+              <Text style={styles.label}>Mobile Number</Text>
+              <TextInput
+                style={styles.inputText}
+                placeholder="Mobile Number"
+                placeholderTextColor="black"
+                // onChange={this.handlePhoneChange}
+                onChange={handleChange('mobileNo')}
+              />
 
-          <Text style={styles.label}>Complaint Descrption</Text>
-          <TextInput
-            style={styles.inputText}
-            underlineColorAndroid="transparent"
-            placeholder="Complaint Description"
-            onChange={this.handleDescriptionChange}
-            placeholderTextColor="black"
-            multiline={true}
-          />
+              <Text style={styles.label}>Address</Text>
+              <TextInput
+                style={styles.inputText}
+                underlineColorAndroid="transparent"
+                placeholder="Address"
+                // value='shamli'
+                onChange={this.handleAddressChange}
+                placeholderTextColor="black"
+                multiline={true}
+              />
 
-          <Text style={styles.label}>Gender </Text>
-          <View style={styles.inputText}>
-            <Picker
-              selectedValue={this.state.gender}
-              onValueChange={(itemValue, itemPosition) =>
-                this.setState({
-                  gender: itemValue,
-                  choosenIndex: itemPosition,
-                })
-              }>
-              <Picker.Item label="Select " value="Select" />
-              <Picker.Item label="Male" value="Male" />
-              <Picker.Item label="Female" value="Female" />
-            </Picker>
-          </View>
+              <Text style={styles.label}>Complaint Descrption</Text>
+              <TextInput
+                style={styles.inputText}
+                underlineColorAndroid="transparent"
+                placeholder="Complaint Description"
+                onChange={this.handleDescriptionChange}
+                placeholderTextColor="black"
+                multiline={true}
+              />
 
-          <Text style={styles.label}>
-            Jurisdiction of Organization About the Complaint{' '}
-          </Text>
-          <View style={styles.inputText}>
-            <Picker
-              selectedValue={this.state.organization}
-              onValueChange={(itemValue, itemPosition) => {
-                this.setState({
-                  organization: itemValue,
-                  choosenIndex: itemPosition,
-                });
-              }}>
-              <Picker.Item label="Select Organization" value={0} />
-              {this.state.filelistnodalofficer.map((park, index) => {
-                return (
-                  <Picker.Item
-                    key={index}
-                    value={park.Authority_name}
-                    label={park.Authority_name}
-                  />
-                );
-              })}
-            </Picker>
-          </View>
+              <Text style={styles.label}>Gender </Text>
+              <View style={styles.inputText}>
+                <Picker
+                  selectedValue={this.state.gender}
+                  onValueChange={(itemValue, itemPosition) =>
+                    this.setState({
+                      gender: itemValue,
+                      choosenIndex: itemPosition,
+                    })
+                  }>
+                  <Picker.Item label="Select " value="Select" />
+                  <Picker.Item label="Male" value="Male" />
+                  <Picker.Item label="Female" value="Female" />
+                </Picker>
+              </View>
 
-          <Text style={styles.label}>Concerned Nodal Officer</Text>
-          <View style={styles.inputText}>
-            <Picker
-              enabled={Boolean(this.state.organization)}
-              selectedValue={this.state.nodalofficer}
-              onValueChange={(itemValue, itemPosition) => {
-                this.setState({
-                  nodalofficer: itemValue,
-                  choosenIndex2: itemPosition,
-                });
-              }}>
-              <Picker.Item label="Select" value="Select" />
-              {NodalNode}
-              {/* {this.state.filelistnodalofficer.filter((park, i) => {
+              <Text style={styles.label}>
+                Jurisdiction of Organization About the Complaint{' '}
+              </Text>
+              <View style={styles.inputText}>
+                <Picker
+                  selectedValue={this.state.organization}
+                  onValueChange={(itemValue, itemPosition) => {
+                    this.setState({
+                      organization: itemValue,
+                      choosenIndex: itemPosition,
+                    });
+                  }}>
+                  <Picker.Item label="Select Organization" value={0} />
+                  {this.state.filelistnodalofficer.map((park, index) => {
+                    return (
+                      <Picker.Item
+                        key={index}
+                        value={park.Authority_name}
+                        label={park.Authority_name}
+                      />
+                    );
+                  })}
+                </Picker>
+              </View>
+
+              <Text style={styles.label}>Concerned Nodal Officer</Text>
+              <View style={styles.inputText}>
+                <Picker
+                  enabled={Boolean(this.state.organization)}
+                  selectedValue={this.state.nodalofficer}
+                  onValueChange={(itemValue, itemPosition) => {
+                    this.setState({
+                      nodalofficer: itemValue,
+                      choosenIndex2: itemPosition,
+                    });
+                  }}>
+                  <Picker.Item label="Select" value="Select" />
+                  {NodalNode}
+                  {/* {this.state.filelistnodalofficer.filter((park, i) => {
                     if (this.state.choosenIndex === i) {
                       return (
                         <Picker.Item
@@ -381,73 +418,78 @@ export default class apply extends Component {
                       return <Picker.Item label="Select " value="Select" />;
                     }
                   })} */}
-            </Picker>
-          </View>
-          <Text style={styles.label}>
-            Concerned Nodal Officer Serial Number
-          </Text>
-          <View style={styles.inputText}>
-            <Picker
-              selectedValue={this.state.nodalofficerserialnumber}
-              onValueChange={(itemValue, itemPosition) =>
-                this.setState({
-                  nodalofficerserialnumber: itemValue,
-                  choosenIndex2: itemPosition,
-                })
-              }>
-              <Picker.Item label="Select" value="Select" />
-              {officer.map((park, i) => {
-                if (this.state.choosenIndex === i) {
-                  return (
-                    <Picker.Item
-                      key={i}
-                      value={park.SerialNo}
-                      label={park.SerialNo}
-                    />
-                  );
-                } else {
-                  return <Picker.Item label="Select " value="Select" />;
-                }
-              })}
-            </Picker>
-          </View>
-          <View style={{marginTop: 20}}>
-            <View flexDirection="row">
-              <FlatList
-                data={filelist}
-                renderItem={this.renderItem}
-                keyExtractor={(item, index) => index}
-                extraData={this.state}
-              />
-            </View>
-            <View>
-              <TouchableOpacity onPress={this.onclick}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    borderWidth: 1,
-                    width: '50%',
-                    borderRadius: 5,
-                    paddingHorizontal: 10,
-                    alignItems: 'center',
-                  }}>
-                  <Image
-                    source={require('../Images/camera.png')}
-                    style={{
-                      width: 50,
-                      height: 50,
-                    }}></Image>
-                  <Text style={{fontWeight: 'bold', left: 5}}>
-                    Choose Photo
-                  </Text>
+                </Picker>
+              </View>
+              <Text style={styles.label}>
+                Concerned Nodal Officer Serial Number
+              </Text>
+              <View style={styles.inputText}>
+                <Picker
+                  selectedValue={this.state.nodalofficerserialnumber}
+                  onValueChange={(itemValue, itemPosition) =>
+                    this.setState({
+                      nodalofficerserialnumber: itemValue,
+                      choosenIndex2: itemPosition,
+                    })
+                  }>
+                  <Picker.Item label="Select" value="Select" />
+                  {officer.map((park, i) => {
+                    if (this.state.choosenIndex === i) {
+                      return (
+                        <Picker.Item
+                          key={i}
+                          value={park.SerialNo}
+                          label={park.SerialNo}
+                        />
+                      );
+                    } else {
+                      return <Picker.Item label="Select " value="Select" />;
+                    }
+                  })}
+                </Picker>
+              </View>
+              <View style={{marginTop: 20}}>
+                <View flexDirection="row">
+                  <FlatList
+                    data={filelist}
+                    renderItem={this.renderItem}
+                    keyExtractor={(item, index) => index}
+                    extraData={this.state}
+                  />
                 </View>
-              </TouchableOpacity>
+                <View>
+                  <TouchableOpacity onPress={this.onclick}>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        borderWidth: 1,
+                        width: '50%',
+                        borderRadius: 5,
+                        paddingHorizontal: 10,
+                        alignItems: 'center',
+                      }}>
+                      <Image
+                        source={require('../Images/camera.png')}
+                        style={{
+                          width: 50,
+                          height: 50,
+                        }}></Image>
+                      <Text style={{fontWeight: 'bold', left: 5}}>
+                        Choose Photo
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+                <TouchableOpacity
+                  style={styles.button}
+                  // onPress={this.handleSubmit}
+                  onPress={handleSubmit}>
+                  <Text style={styles.buttontext}>Submit</Text>
+                </TouchableOpacity>
+              </View>
             </View>
-            <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
-              <Text style={styles.buttontext}>Submit</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+          )}
+        </Formik>
       </ScrollView>
     );
   }
